@@ -3,6 +3,7 @@ var StyleManager = require('style_manager');
 module.exports = {
 
   run(em, sender) {
+
     this.sender  = sender;
     if(!this.$cn){
       var config    = em.getConfig(),
@@ -19,6 +20,8 @@ module.exports = {
         var devicePanel = panels.addPanel({ id: 'devices-c'});
         devicePanel.set('appendContent', dvm.render()).trigger('change:appendContent');
       }
+
+      console.log("dsfgvdsfgd");
 
       // Class Manager container
       var clm = em.SelectorManager;

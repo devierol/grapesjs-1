@@ -82,7 +82,9 @@ module.exports = Backbone.View.extend({
    * Fires on state update. If the state is not empty will add a helper class
    * @param  {Event} e
    * @private
-   * */
+   * 
+   */
+
   updateState(e) {
     var cl = 'hc-state';
     var state = this.model.get('state');

@@ -44,6 +44,7 @@
  * }
  * ...
  */
+ 
 module.exports = () => {
   var c = {},
   defaults = require('./config/config'),
@@ -123,6 +124,7 @@ module.exports = () => {
      * @example
      * var myPanel = panelManager.getPanel('myNewPanel');
      */
+     
     getPanel(id) {
       var res  = panels.where({id});
       return res.length ? res[0] : null;
@@ -171,6 +173,7 @@ module.exports = () => {
      * @example
      * var button = panelManager.getButton('myPanel','myButton');
      */
+
     getButton(panelId, id) {
       var pn  = this.getPanel(panelId);
       if(pn){
@@ -184,6 +187,7 @@ module.exports = () => {
      * Render panels and buttons
      * @return {HTMLElement}
      */
+
     render() {
       return PanelsViewObj.render().el;
     },
@@ -194,9 +198,12 @@ module.exports = () => {
      */
     active() {
       this.getPanels().each(p => {
+        
           p.get('buttons').each(btn => {
+            
             if(btn.get('active'))
               btn.trigger('updateActive');
+
           });
         });
     },
@@ -204,4 +211,8 @@ module.exports = () => {
     Panel,
 
   };
+
+  //var panelManager = editor.Panels;
+
+
 };

@@ -11,6 +11,8 @@ module.exports = Backbone.View.extend({
     this.listenTo(this.collection, 'add', this.addTo );
     this.listenTo(this.collection, 'reset', this.render );
     this.className = this.pfx + 'buttons';
+
+
   },
 
   /**
@@ -30,6 +32,7 @@ module.exports = Backbone.View.extend({
    *
    * @return Object Object created
    * */
+   
   addToCollection(model, fragmentEl) {
     var fragment  = fragmentEl || null;
     var viewObject  = ButtonView;
@@ -62,4 +65,7 @@ module.exports = Backbone.View.extend({
     this.$el.attr('class', _.result(this, 'className'));
     return this;
   }
+
 });
+
+

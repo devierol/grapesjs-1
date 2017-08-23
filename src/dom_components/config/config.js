@@ -20,7 +20,7 @@ module.exports = {
   rte: {},
 
   // Class for new image component
-  imageCompClass  : 'fa fa-picture-o',
+  imageCompClass  : '',
 
   // Open assets manager on create of image component
   oAssetsOnCreate  : true,

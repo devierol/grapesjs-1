@@ -245,6 +245,7 @@ module.exports = Backbone.View.extend({
    * @return {this}
    * @private
    */
+   
   renderClasses() {
     var fragment = document.createDocumentFragment();
 

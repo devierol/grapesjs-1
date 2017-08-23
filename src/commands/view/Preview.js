@@ -23,14 +23,16 @@ module.exports = {
     var canvas = editor.Canvas.getElement();
     var editorEl = editor.getEl();
     var pfx = editor.Config.stylePrefix;
+    
     if(!this.helper) {
       this.helper = document.createElement('span');
-      this.helper.className = pfx + 'off-prv fa fa-eye-slash';
+      this.helper.className = pfx + 'off-prv fa fa-eye-slash + "back"';
       editorEl.appendChild(this.helper);
       this.helper.onclick = () => {
         that.stop(editor);
       };
     }
+
     this.helper.style.display = 'inline-block';
     this.tglPointers(editor);
 

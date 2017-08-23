@@ -34,7 +34,7 @@ module.exports = Backbone.View.extend({
     this.sorter = o.sorter || {};
     this.pfx = this.config.stylePrefix;
     if(typeof this.model.get('open') == 'undefined')
-      this.model.set('open',false);
+    this.model.set('open',false);
     this.listenTo(this.model.components, 'remove add change reset', this.checkChildren);
     this.listenTo(this.model, 'destroy remove', this.remove);
     this.listenTo(this.model, 'change:status', this.updateStatus);
@@ -73,6 +73,7 @@ module.exports = Backbone.View.extend({
   /**
    * Handle with the end of editing of the component name
    */
+   
   handleEditEnd(e) {
     e.stopPropagation();
     var inputName = this.getInputName();
@@ -186,20 +187,26 @@ module.exports = Backbone.View.extend({
    * */
   toggleVisibility(e) {
     if(!this.$eye)
-      this.$eye = this.$el.find('> #'+this.pfx+'btn-eye');
+    this.$eye = this.$el.find('> #'+this.pfx+'btn-eye');
 
     var cCss = _.clone(this.model.get('style')),
     hClass = this.pfx + 'hide';
+
     if(this.isVisible()){
       this.$el.addClass(hClass);
-      this.$eye.addClass('fa-eye-slash');
+      this.$eye.addClass('');
       cCss.display = 'none';
-    }else{
+
+    }
+
+    else{
       this.$el.removeClass(hClass);
       this.$eye.removeClass('fa-eye-slash');
       delete cCss.display;
     }
+
     this.model.set('style', cCss);
+
   },
 
   /**
@@ -207,6 +214,7 @@ module.exports = Backbone.View.extend({
    *
    * @return bool
    * */
+
   isVisible() {
     var css = this.model.get('style'),
       pr = css.display;

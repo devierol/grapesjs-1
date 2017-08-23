@@ -41,46 +41,61 @@ module.exports = () => {
 
   var component, componentView;
   var defaultTypes = [
+
     {
       id: 'cell',
       model: require('./model/ComponentTableCell'),
       view: require('./view/ComponentTableCellView'),
     },
+
     {
       id: 'row',
       model: require('./model/ComponentTableRow'),
       view: require('./view/ComponentTableRowView'),
     },
+
     {
       id: 'table',
       model: require('./model/ComponentTable'),
       view: require('./view/ComponentTableView'),
     },
+
     {
       id: 'map',
       model: require('./model/ComponentMap'),
       view: require('./view/ComponentMapView'),
     },
+    
     {
       id: 'link',
       model: require('./model/ComponentLink'),
       view: require('./view/ComponentLinkView'),
     },
+
     {
       id: 'video',
       model: require('./model/ComponentVideo'),
       view: require('./view/ComponentVideoView'),
     },
+
     {
       id: 'image',
       model: require('./model/ComponentImage'),
       view: require('./view/ComponentImageView'),
     },
+
+    /*{
+      id: 'Countdown',
+      model: require('./model/ComponentCountdown'),
+  //    view: require('./view/ComponentImageView'),
+    },
+    */
     {
       id: 'script',
       model: require('./model/ComponentScript'),
       view: require('./view/ComponentScriptView'),
     },
+
     {
       id: 'svg',
       model: require('./model/ComponentSvg'),
@@ -402,3 +417,4 @@ module.exports = () => {
 
   };
 };
+

@@ -26,13 +26,16 @@
  * }
  * ...
  */
+
 module.exports = () => {
   var c = {},
   defaults = require('./config/config'),
   Blocks = require('./model/Blocks'),
   BlockCategories = require('./model/Categories'),
+  //components = require('./components'),
+  //loadBlock = require('./blocks'),
   BlocksView = require('./view/BlocksView');
-  var blocks, view;
+  var blocks, view, comp,lBlock;
   var categories = [];
 
   return {
@@ -57,7 +60,9 @@ module.exports = () => {
             c[name] = defaults[name];
         }
         blocks = new Blocks(c.blocks);
-        categories = new BlockCategories(),
+
+       categories = new BlockCategories(),
+
         view = new BlocksView({
           collection: blocks,
           categories,
@@ -106,7 +111,7 @@ module.exports = () => {
         return blocks.get(id);
       },
 
-      /**
+      /*
        * Return all blocks
        * @return {Collection}
        * @example
@@ -114,6 +119,7 @@ module.exports = () => {
        * console.log(JSON.stringify(blocks));
        * // [{label: 'Heading', content: '<h1>Put your ...'}, ...]
        */
+       
       getAll() {
         return blocks;
       },
@@ -147,3 +153,5 @@ module.exports = () => {
   };
 
 };
+
+
