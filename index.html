@@ -7,15 +7,18 @@
     <link rel="stylesheet" href="dist/css/grapes.min.css">
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="dist/grapes.min.js"></script>
-
+ 
     <script src="/grapesjs-component-countdown/dist/grapesjs-component-countdown.min.js"></script>
-    <script src="/grapesjs-component-countdown/src/index.js"></script>
+
 
     <script src="/grapesjs-component-dayTimer/dist/grapesjs-component-daytimer.min.js"></script>
-    <script src="/grapesjs-component-dayTimer/src/index.js"></script> 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" ></script>   
-    
+
+    <script src="/grapesjs-navbar/dist/grapesjs-navbar.min.js"></script>
+  
+    <script src="/grapesjs-plugin-forms/dist/grapesjs-plugin-forms.min.js"></script>
+  
+    <script /*src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"*/ ></script>     
   </head>
 
   <style>
@@ -23,8 +26,6 @@
   </style>
 
   <body>
-
-
     <div id="gjs" style="height:0px; overflow:hidden;">
       <header class="header-banner">
         <div class="container-width">
@@ -851,7 +852,7 @@
       
     
     //plugins
-       plugins: ['gjs-component-countdown','gjs-component-daytimer'],
+       plugins: ['gjs-component-countdown','gjs-component-daytimer','gjs-navbar','gjs-plugin-forms'],
        pluginsOpts: {
     
         'gjs-component-countdown': {
@@ -871,7 +872,7 @@
 
         'gjs-component-daytimer': {
 
-          //defaultStyle:true,
+          defaultStyle:true,
           startTime: 'yyyy-mm-dd',
           endText: 'Expired',
           dateInputType:'date',
@@ -882,11 +883,65 @@
           labelHours:'hours',
           labelMinutes:'minutes',
           labelSeconds:'seconds'
+        },
+
+         'gjs-navbar': {
+            //blocks: [hNavbarRef],
+            defaultStyle: 1,
+            navbarClsPfx: 'navbar',
+            labelNavbar: 'Navbar',
+            labelNavbarContainer: 'Navbar Container',
+            labelMenu: 'Navbar Menu',
+            labelMenuLink: 'Menu link',
+            labelBurger: 'Burger',
+            labelBurgerLine: 'Burger Line',
+            labelNavbarBlock: 'Navigation',
+            labelNavbarCategory: 'Content Block',
+            labelHome: 'Home',
+            labelAbout: 'About',
+            labelContact: 'Contact',
+         },
+
+        'gjs-plugin-forms':{
+
+            blocks: ['form', 'input', 'textarea', 'select',
+              'button', 'label', 'checkbox', 'radio'],
+            labelTraitMethod: 'Method',
+            labelTraitAction: 'Action',
+            labelTraitState: 'State',
+            labelTraitId: 'ID',
+            labelTraitFor: 'For',
+            labelInputName: 'Input',
+            labelTextareaName: 'Textarea',
+            labelSelectName: 'Select',
+            labelCheckboxName: 'Checkbox',
+            labelRadioName: 'Radio',
+            labelButtonName: 'Button',
+            labelTraitName: 'Name',
+            labelTraitPlaceholder: 'Placeholder',
+            labelTraitValue: 'Value',
+            labelTraitRequired: 'Required',
+            labelTraitType: 'Type',
+            labelTraitOptions: 'Options',
+            labelTraitChecked: 'Checked',
+            labelTypeText: 'Text',
+            labelTypeEmail: 'Email',
+            labelTypePassword: 'Password',
+            labelTypeNumber: 'Number',
+            labelTypeSubmit: 'Submit',
+            labelTypeReset: 'Reset',
+            labelTypeButton: 'Button',
+            labelNameLabel: 'Label',
+            labelForm: 'Form',
+            labelSelectOption: '- Select option -',
+            labelOption: 'Option',
+            labelStateNormal: 'Normal',
+            labelStateSuccess: 'Success',
+            labelStateError: 'Error',
+
         }
 
       }, 
-
-
 
       storageManager: {
       id: 'gjs-',             // Prefix identifier that will be used inside storing and loading
@@ -899,7 +954,6 @@
       storeHtml: true,        // Enable/Disable storing of components as HTML string
       storeCss: true,         // Enable/Disable storing of rules/style as CSS string
       },
-
 
       commands:     {
           defaults: [{
@@ -1050,7 +1104,7 @@
           {
             id: 'button',
             label: 'Button',
-            category: 'Form',
+            category: 'Forms',
             attributes: {class:'fa fa-square'},
             content: ` 
                     <button type="button">button</button>
@@ -1060,7 +1114,7 @@
           {
             id: 'input',
             label: 'Input',
-            category: 'Form',
+            category: 'Forms',
             attributes: {class:'fa fa-square-o'},
             content: `
                        <input class="Input" type="text" name="firstname" placeholder="">
@@ -1071,7 +1125,7 @@
           {
             id: 'select',
             label: 'Select Box',
-            category: 'Form',
+            category: 'Forms',
             attributes: {class:'fa fa-caret-down'},
             content: `
                     <select class="select">
@@ -1082,17 +1136,17 @@
                     </select>
             `,
           },
-
+/*
           {
             id: 'text',
             label: 'Text Area',
             attributes: {class:'fa fa-align-center'},
-            category: 'Form',
+            category: 'Forms',
             content: `
                     <textarea class="textarea" rows="4" cols="50" placeholder="insert your text here" ></textarea>
             `,
           },
-       
+ */      
 
 //-------------------------Advance form
 
@@ -1801,14 +1855,14 @@
             content: ``
           },
 
-          {
+      /*    {
             id: 'Navigation',
             label: 'Navigation',
             category: 'Content Block',
             attributes: {class:'fa fa-link'},
             content: ``
           },
-
+      */
           {
             id: 'Faq',
             label: 'Faq',
